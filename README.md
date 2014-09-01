@@ -4,6 +4,10 @@ galah
 
 chatform - reinventing clueless lifehacks, disintermediate long-tail networking
 
+Todo:
+- engage peer-to-peer folksonomies
+
+
 ## Prerequisites
 
 You will need [Leiningen][1] 1.7.0 or above installed.
