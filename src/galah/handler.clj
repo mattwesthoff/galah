@@ -10,4 +10,3 @@
       (siphon broadcast-channel ch))))
 
 (defn -main []  (start-http-server chat-handler {:port 8008 :websocket true}))
-
