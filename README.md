@@ -1,6 +1,10 @@
-# galah
+=======
+galah
+=====
 
-FIXME
+chatform - reinventing clueless lifehacks, disintermediate long-tail networking
+
+# galah
 
 ## Prerequisites
 
@@ -16,4 +20,4 @@ To start a web server for the application, run:
 
 ## License
 
-Copyright © 2014 FIXME
+Copyright © 2014 MattWesthoff&MattMcDonald
