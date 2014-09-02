@@ -1,4 +1,5 @@
-(ns galah.handler)
+(ns galah.handler
+    (:require [clojure.tools.logging :as log]))
 (use 'lamina.core 'aleph.http)
 
 (def broadcast-channel (permanent-channel))
@@ -9,4 +10,6 @@
       (siphon (map* #(str name ": " %) ch) broadcast-channel)
       (siphon broadcast-channel ch))))
 
-(defn -main []  (start-http-server chat-handler {:port 8008 :websocket true}))
+(defn -main []
+    (start-http-server chat-handler {:port 8008 :websocket true})
+    (println "server starting"))
