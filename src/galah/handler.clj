@@ -1,13 +1,12 @@
-(ns galah.handler
-  (:use ring.util.response)
-  (:require [compojure.core :refer :all]
-            [compojure.handler :as handler]
-            [compojure.route :as route]))
+(ns galah.handler)
+(use 'lamina.core 'aleph.http)
 
-(defroutes app-routes
-  (GET "/" [] (resource-response "index.html" {:root "public"}))
-  (route/resources "/")
-  (route/not-found "Not Found"))
+(def broadcast-channel (permanent-channel))
 
-(def app
-  (handler/site app-routes))
+(defn chat-handler [ch handshake]
+  (receive ch
+    (fn [name]
+      (siphon (map* #(str name ": " %) ch) broadcast-channel)
+      (siphon broadcast-channel ch))))
+
+(defn -main []  (start-http-server chat-handler {:port 8008 :websocket true}))
