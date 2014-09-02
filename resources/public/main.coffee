@@ -1,16 +1,16 @@
 $ ->
-  wsConnection = new WebSocket("http:localhost:8008")
-  wsConnection.onopen ->
+  wsConnection = new WebSocket("http://localhost:8008")
+  wsConnection.onopen = ->
     console.log("opened")
 
-  wsConnection.onclose ->
+  wsConnection.onclose = ->
     console.log("closed")
 
-  wsConnection.onerror (error) ->
+  wsConnection.onerror (error) = ->
     console.log("error: " + error)
 
   wsConnection.send("have a string!");
 
-  wsConnection.onmessage (e) ->
+  wsConnection.onmessage (e) = ->
     message = e.data
     $("#messageArea").text(message)
