@@ -25,7 +25,7 @@
   (with-handler chat-handler
     (let [ch (wait-for-result (ws-client) 1000)]
       (enqueue ch "b")
-      (dotimes [_ 10]
+      (dotimes [_ 5]
         (enqueue ch "a")
         (is (= "b: a" (wait-for-result (read-channel ch) 500))))
       (close ch))
@@ -37,13 +37,10 @@
           ch2 (wait-for-result (ws-client) 1000)]
       (enqueue ch "b")
       (enqueue ch2 "c")
-      (dotimes [_ 10]
-        (enqueue ch "a")
-        (is (= "b: a" (wait-for-result (read-channel ch2) 500)))
-        (is (= "b: a" (wait-for-result (read-channel ch) 500)))
-        (enqueue ch2 "a")
-        (is (= "c: a" (wait-for-result (read-channel ch) 500)))
-        (is (= "c: a" (wait-for-result (read-channel ch2) 500)))
-        )
+
+      (enqueue ch2 "a")
+      (is (= "c: a" (wait-for-result (read-channel ch) 500)))
+      (is (= "c: a" (wait-for-result (read-channel ch2) 500)))
+
       (close ch)
       (close ch2))))
