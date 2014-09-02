@@ -1,0 +1,20 @@
+{
+  "name": "galah-client",
+  "description": "galah web client",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mattoraptor/galah.git"
+  },
+  "dependencies": {
+    "coffee-script": ">= 1.6.0"
+  },
+  "devDependencies": {
+    "karma": "~0.12.0",
+    "karma-coffee-preprocessor": "^0.2.1",
+    "karma-jasmine": "^0.1.5",
+    "karma-phantomjs-launcher": "~0.1.4",
+    "phantomjs": "~1.9.0",
+    "karma-jquery": "~0.1.0"
+  }
+}
