@@ -19,6 +19,10 @@ To start the server run:
 
     lein run -m galah.handler
 
+## Tests
+To use test-refresh (reccommened) run:
+lein test-refresh
+
 ## License
 
 Copyright © 2014 MattWesthoff&MattMcDonald
