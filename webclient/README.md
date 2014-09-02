@@ -2,5 +2,5 @@ galah - web client
 =====
 
 ## Tests
-npm install karma jasmine
+npm install
 ./node_modules/karma/bin/karma start karma.conf.js
