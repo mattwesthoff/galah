@@ -24,7 +24,7 @@
 (deftest test-chat-handler
   (with-handler chat-handler
     (let [ch (wait-for-result (ws-client) 1000)]
-      (enqueue ch "{\"command\":\"setName\" \"name\":\"b\"}")
+      (enqueue ch "{\"command\":\"setName\", \"name\":\"b\"}")
       (dotimes [_ 5]
         (enqueue ch "{\"message\":\"a\"}")
         (is (= "b: a" (wait-for-result (read-channel ch) 500))))
