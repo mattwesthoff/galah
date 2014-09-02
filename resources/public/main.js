@@ -4,11 +4,6 @@ $(function() {
   wsConnection = new WebSocket("ws://localhost:8008");
   wsConnection.onopen = function() {
     console.log("opened");
-    setTimeout(function() {
-      console.log("sending");
-      wsConnection.send("tacos");
-      wsConnection.send("have a string!");
-    }, 1000);
   };
   wsConnection.onclose = function() {
     return console.log("closed");
@@ -20,7 +15,16 @@ $(function() {
     console.log("got a message");
     var message;
     message = e.data;
-    $("#messageArea").text(message);
+    $("#messageArea").append(message + "<br />");
   };
+
+  $(document).ready(function() {
+    $("#chatButton").click(function(){
+        var message = $("#chatMessage").val();
+        $("#chatMessage").val("");
+        console.log(message);
+        wsConnection.send(message);
+    }); 
+});
 
 });
