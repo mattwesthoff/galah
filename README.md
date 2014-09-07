@@ -21,7 +21,13 @@ To start the server run:
 
 ## Tests
 To use test-refresh (reccommened) run:
+
 lein test-refresh
+
+## CI
+We have a CI server here:
+
+http://ec2-54-68-124-31.us-west-2.compute.amazonaws.com:8080/job/galah/
 
 ## License
 
