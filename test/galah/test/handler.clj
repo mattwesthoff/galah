@@ -28,8 +28,7 @@
       (dotimes [_ 5]
         (enqueue ch "{\"message\":\"a\"}")
         (is (= "b: a" (wait-for-result (read-channel ch) 500))))
-      (close ch))
-      ))
+      (close ch))))
 
 ; (deftest test-chat-handler-with-two-clients
 ;   (with-handler chat-handler
